@@ -4,16 +4,38 @@ var tend;
 var toh;
 var tone;
 
-if (document.getElementById("hahahahtml").offsetWidth > document.getElementById("hahahahtml").offsetHeight) {
-    
-    document.getElementById("vertical").style.height = "10vh";
-    document.getElementById("vertical").style.width = "0.2vh";
-    document.getElementById("horizontal").style.height = "0.2vh";
-    document.getElementById("horizontal").style.width = "10vh";
-}
+
+var html = document.documentElement;
+
+var Width = html.clientWidth;
+var Height = html.clientHeight;
+
 
 function hit() {
     hits++;
+
+    console.log("width = " + html.clientWidth + ", height = " + html.clientHeight);
+    console.log("%i, %i, %i, %i, %i", document.getElementById("body").scrollHeight, document.getElementById("body").offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+    console.log("%i, %i, %i, %i, %i", document.getElementById("body").scrollWidth, document.getElementById("body").offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
+if (html.clientWidth > html.clientHeight) {
+    
+    document.getElementById("vertical").style.height = "10vw";
+    document.getElementById("vertical").style.width = "0.2vw";
+    document.getElementById("horizontal").style.height = "0.2vw";
+    document.getElementById("horizontal").style.width = "10vw";
+    console.log("width >height");
+}
+
+if (html.clientWidth < html.clientHeight) {
+    document.getElementById("vertical").style.height = "15vh";
+    document.getElementById("vertical").style.width = "0.2vh";
+    document.getElementById("vertical").style.top = "0vh";
+    document.getElementById("horizontal").style.height = "0.2vh";
+    document.getElementById("horizontal").style.width = "15vh";
+    document.getElementById("horizontal").style.left = "0vh";
+    document.getElementById("TotalHits").textContent = "ahahhahahah";
+    console.log("width < height");
+}
     if (hits == 31) {
         hits = 1;
     }

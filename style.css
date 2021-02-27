@@ -127,8 +127,8 @@ img {
         left: 5px;
     }
     #target {
-        width: 10vh;
-        height: 10vh;
+        width: 15vh;
+        height: 15vh;
         box-shadow:
         0 0 0 0.2vh rgb(150, 150, 150) inset,
         0 0 0 1.7vh rgb(40, 40, 40) inset,
