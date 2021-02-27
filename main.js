@@ -24,7 +24,8 @@ function hit() {
     random = Math.floor(Math.random() * 75);
     document.getElementById("target").style.top = random + "vh";
     
-    
+    document.getElementById("progressBar").value = hits;
+    document.getElementById("progressBartoo").value = 30 - hits;
     
     //-------------------------------------------------------------------
     //start
@@ -61,7 +62,6 @@ function hit() {
         
         tend = new Date().getTime();
         console.log ("tend = " + tend);
-        document.getElementById("TotalHits").style.top = "40vh";
         document.getElementById("TotalHits").textContent = "30 tagets took u " + (tend-tstart)/1000 + " seconds";    
         document.getElementById("SecondText").style.display = "none";
         var idkEither = ((tend-tstart)/hits).toFixed(0);
