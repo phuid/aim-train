@@ -90,7 +90,7 @@ img {
     font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p { font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5667px;
 }
 
-#progressBar {
+progress #progressBar {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -103,7 +103,7 @@ img {
 #progressBar::-webkit-progress-value { background: rgb(25, 25, 25)); }
 #progressBar::-moz-progress-bar { background: rgb(25, 25, 25); }
 
-#progressBartoo {
+progress #progressBartoo {
     position: absolute;
     display: block;
     float: right;
