@@ -152,6 +152,7 @@ progress::-moz-progress-bar { background: rgb(30, 30, 30); }
     #secondText {
         position: fixed;
         text-align: left;
+        top: auto;
         bottom: 0;
         right: auto;
         left: 5px;
