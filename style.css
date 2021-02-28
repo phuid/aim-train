@@ -131,18 +131,18 @@ img {
         height: 15vh;
         box-shadow:
         0 0 0 0.2vh rgb(150, 150, 150) inset,
-        0 0 0 1.7vh rgb(40, 40, 40) inset,
-        0 0 0 1.9vh rgb(150, 150, 150) inset,
-        0 0 0 3.4vh rgb(40, 40, 40) inset,
-        0 0 0 3.6vh rgb(150, 150, 150) inset,
-        0 0 0 8vh rgb(40, 40, 40) inset;
+        0 0 0 2.7vh rgb(40, 40, 40) inset,
+        0 0 0 2.9vh rgb(150, 150, 150) inset,
+        0 0 0 5.4vh rgb(40, 40, 40) inset,
+        0 0 0 5.6vh rgb(150, 150, 150) inset,
+        0 0 0 10vh rgb(40, 40, 40) inset;
     }
-    canvas .vertical {
+    div .vertical {
         top: 0vh;
         height: 10vh;
         width: 0.2vh;
     }
-    canvas .horizantal {
+    div .horizantal {
         left: 0vh;
         height: 0.2vh;
         width: 10vh;
