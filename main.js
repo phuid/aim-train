@@ -19,8 +19,12 @@ function screen() {
 
         document.getElementById("vertical").style.height = "10vw";
         document.getElementById("vertical").style.width = "0.2vw";
+        document.getElementById("vertical").style.left = "5vw";
+        document.getElementById("vertical").style.top = "0vw";
         document.getElementById("horizontal").style.height = "0.2vw";
         document.getElementById("horizontal").style.width = "10vw";
+        document.getElementById("horizontal").style.left = "0vw";
+        document.getElementById("horizontal").style.top = "5vw";
         console.log("width > height");
     }
 
@@ -33,6 +37,8 @@ function screen() {
         document.getElementById("horizontal").style.width = "15vh";
         document.getElementById("horizontal").style.left = "0vh";
         document.getElementById("horizontal").style.top = "7.5vh";
+        document.getElementById("vertical").style.backgroundColor = "red";
+        document.getElementById("horizontal").style.backgroundColor = "red";
         console.log("width < height");
 
         document.getElementById("TotalHits").style.fontSize = "5vh";
@@ -49,7 +55,8 @@ function screen() {
 
 function hit() {
     hits++;
-
+    
+    screen();
 
     if (hits == 31) {
         hits = 1;
