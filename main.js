@@ -70,8 +70,6 @@ function hit() {
 
     document.getElementById("progressBar").value = hits;
     document.getElementById("progressBartoo").value = hits;
-    document.getElementById("progressBarThird").value = hits;
-    document.getElementById("progressBarFourth").value = hits;
 
     //-------------------------------------------------------------------
     //start

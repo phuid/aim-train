@@ -102,41 +102,29 @@ img {
     font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; } h3 { font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; } p { font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; } blockquote { font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; } pre { font-family: Courier New, Courier, Lucida Sans Typewriter, Lucida Typewriter, monospace; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5667px;
 }
 
-progress {
-    z-index: 3;
+#progressBar {
     position: fixed;
     top: 0px;
     left: 0px;
-    border: none;
     height: 100%;
     width: 50%;
+    border: none;
+    z-index: 3;
     background-color:rgba(20, 20, 20, 0);
-    transition: value 400ms;
 }
-progress::-webkit-progress-value { background: rgb(30, 30, 30)); }
+progress::-webkit-progress-value { background: rgb(30, 30, 30); }
 progress::-moz-progress-bar { background: rgb(30, 30, 30); }
 #progressBartoo {
     transform: rotate(180deg);
-    left: 0;
+    position: fixed;
+    right: 0;
     top: 0;
     bottom: 0;
     width: 50%;
-}
-#progressBarThird {
-    transform: rotate(90deg);
-    top: 0;
-    bottom: 50%;
-    left: 0;
-    right: 0;
-    width: 50%;
-}
-#progressBarFourth {
-    transform: rotate(270deg);
-    bottom: 0;
-    top: 50%;
-    left: 0;
-    right: 0;
-    width: 50%;
+    height: 100%;
+    border: none;
+    z-index: 3;
+    background-color:rgba(20, 20, 20, 0);
 }
 
 #progressBarSecond {
@@ -144,11 +132,13 @@ progress::-moz-progress-bar { background: rgb(30, 30, 30); }
     border: none;
     width: 100vw;
     height: 1%;
+    top: 0;
+    left: 0;
     position: fixed;
     display: block;
     background-color: rgba(0, 0, 0, 0);
 }
-#progressBarSecond::-webkit-progress-value { background: rgba(0, 255, 0, 0.5)); }
+#progressBarSecond::-webkit-progress-value { background: rgba(0, 255, 0, 0.5); }
 #progressBarSecond::-moz-progress-bar { background: rgba(0, 255, 0, 0.5); }
 
 @media (max-aspect-ratio: 1) {
@@ -160,9 +150,9 @@ progress::-moz-progress-bar { background: rgb(30, 30, 30); }
         left: 5px;
     }
     #secondText {
-        position: absolute;
+        position: fixed;
         text-align: left;
-        top: 400px;
+        bottom: 0;
         right: auto;
         left: 5px;
     }
