@@ -55,13 +55,13 @@ function screen() {
 
 function hit() {
     hits++;
-    
+
     screen();
 
     if (hits == 31) {
         hits = 1;
     }
-    document.getElementById("TotalHits").textContent = Math.round(hits);
+    document.getElementById("TotalHits").innerHTML = Math.round(hits);
 
     var random = Math.floor(Math.random() * 90);
     document.getElementById("target").style.left = random + "vw";
@@ -81,9 +81,9 @@ function hit() {
 
         var countdownTimer = setInterval(() => {
             var idk = ((new Date().getTime() - tstart) / 1000).toFixed(3);
-            document.getElementById("SecondText").textContent = idk;
+            document.getElementById("SecondText").innerHTML = idk;
             if ((new Date().getTime() - toh) < 1000 | document.getElementById("progressBarSecond").value < 1000) {
-                    document.getElementById("progressBarSecond").value = (new Date().getTime() - toh);
+                document.getElementById("progressBarSecond").value = (new Date().getTime() - toh);
             }
             else {
                 document.getElementById("progressBarSecond").value = "1000";
@@ -100,22 +100,34 @@ function hit() {
     //not start
     else {
         tone = new Date().getTime();
-        document.getElementById("ThirdText").textContent = (tone - toh) + "ms";
+        document.getElementById("ThirdText").innerHTML = (tone - toh) + "ms";
     }
     //not start
     //--------------------------------------------------
     //end
     if (hits == 30) {
         document.getElementById("target").style.display = "none";
-        document.getElementById("TotalHits").textContent = "wp";
 
         tend = new Date().getTime();
         console.log("tend = " + tend);
-        document.getElementById("TotalHits").textContent = "30 tagets took u " + (tend - tstart) / 1000 + " seconds";
+
+        if (localStorage.getItem('best') > tend - tstart && localStorage.getItem('best') > 0) {
+            localStorage.setItem('best', tend - tstart);
+            document.getElementById("TotalHits").innerHTML = "30 tagets took u " + (tend - tstart) / 1000 + " seconds <br> this is your new best score";
+        }
+        else if (localStorage.getItem('best') < tend - tstart && localStorage.getItem('best') > 0) {
+            document.getElementById("TotalHits").innerHTML = "30 tagets took u " + (tend - tstart) / 1000 + " seconds <br> your best time is " + localStorage.getItem('best') / 1000;
+        }
+        else {
+            localStorage.setItem('best', tend - tstart);
+            document.getElementById("TotalHits").innerHTML = "30 tagets took u " + (tend - tstart) / 1000 + " seconds <br> No previous best time found";
+        }
+
+        
         document.getElementById("SecondText").style.display = "none";
         var idkEither = ((tend - tstart) / hits).toFixed(0);
-        document.getElementById("ThirdText").textContent = "avg. = " + idkEither + "ms";
-        var idktimeout = setTimeout (() => {
+        document.getElementById("ThirdText").innerHTML = "avg. = " + idkEither + "ms";
+        var idktimeout = setTimeout(() => {
             document.getElementById("progressBarSecond").value = "0";
         }, 31)
 
@@ -123,7 +135,7 @@ function hit() {
             document.getElementById("target").style.display = "block";
             document.getElementById("target").style.top = "40vh";
             document.getElementById("target").style.left = "45vw";
-            document.getElementById("SecondText").textContent = "hit again to restart";
+            document.getElementById("SecondText").innerHTML = "hit again to restart";
             document.getElementById("SecondText").style.display = "block";
         }, 1500);
     }
