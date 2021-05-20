@@ -11,6 +11,7 @@ var Width = html.clientWidth;
 var Height = html.clientHeight;
 
 
+
 function screen() {
     console.log("width = " + html.clientWidth + ", height = " + html.clientHeight);
     console.log("%i, %i, %i, %i, %i", document.getElementById("body").scrollHeight, document.getElementById("body").offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
@@ -57,6 +58,10 @@ function hit() {
     hits++;
 
     screen();
+
+    if (localStorage.getItem('best') > 0) {
+        document.getElementById("best").innerHTML = "best time: " + localStorage.getItem('best') / 1000;
+    }
 
     if (hits == 31) {
         hits = 1;
@@ -111,19 +116,15 @@ function hit() {
         tend = new Date().getTime();
         console.log("tend = " + tend);
 
-        if (localStorage.getItem('best') > tend - tstart && localStorage.getItem('best') > 0) {
+        if (localStorage.getItem('best') > tend - tstart) {
             localStorage.setItem('best', tend - tstart);
-            document.getElementById("TotalHits").innerHTML = "30 tagets took u " + (tend - tstart) / 1000 + " seconds <br> this is your new best score";
         }
-        else if (localStorage.getItem('best') < tend - tstart && localStorage.getItem('best') > 0) {
-            document.getElementById("TotalHits").innerHTML = "30 tagets took u " + (tend - tstart) / 1000 + " seconds <br> your best time is " + localStorage.getItem('best') / 1000;
-        }
-        else {
-            localStorage.setItem('best', tend - tstart);
-            document.getElementById("TotalHits").innerHTML = "30 tagets took u " + (tend - tstart) / 1000 + " seconds <br> No previous best time found";
+        if (localStorage.getItem('best') > 0) {
+            document.getElementById("best").innerHTML = "best time: " + localStorage.getItem('best') / 1000;
         }
 
-        
+        document.getElementById("TotalHits").innerHTML = "30 tagets took u " + (tend - tstart) / 1000 + " seconds";
+
         document.getElementById("SecondText").style.display = "none";
         var idkEither = ((tend - tstart) / hits).toFixed(0);
         document.getElementById("ThirdText").innerHTML = "avg. = " + idkEither + "ms";
@@ -147,4 +148,11 @@ function hit() {
     toh = new Date().getTime();
     console.log("toh = " + toh);
 }
-var timeoutYeah = setTimeout(() => { screen(); }, 100);
+
+function onload() {
+    if (localStorage.getItem('best') > 0) {
+        document.getElementById("best").innerHTML = "best time: " + localStorage.getItem('best') / 1000;
+    }
+    var intervalYeah = setInterval(() => { screen(); }, 500);
+}
+var timeoutYeah = setTimeout(() => { screen(); onload();}, 0);
