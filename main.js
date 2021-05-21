@@ -152,6 +152,7 @@ function hit() {
 function onload() {
     if (localStorage.getItem('best') > 0) {
         document.getElementById("best").innerHTML = "best time: " + localStorage.getItem('best') / 1000;
+        document.getElementById("best").style.color = "white";
     }
     var intervalYeah = setInterval(() => { screen(); }, 500);
 }
