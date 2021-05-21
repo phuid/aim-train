@@ -116,7 +116,7 @@ function hit() {
         tend = new Date().getTime();
         console.log("tend = " + tend);
 
-        if (localStorage.getItem('best') > tend - tstart) {
+        if (localStorage.getItem('best') > tend - tstart | !localStorage.getItem('best') > 0) {
             localStorage.setItem('best', tend - tstart);
         }
         if (localStorage.getItem('best') > 0) {
